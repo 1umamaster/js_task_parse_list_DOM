@@ -16,7 +16,19 @@ const sortList = function (list) {
 };
 
 const getEmployees = function (list) {
-  return list;
+  const ul = document.querySelector('ul');
+
+  ul.innerHTML = '';
+
+  list.forEach((employee) => {
+    const li = document.createElement('li');
+
+    li.textContent = employee.name;
+    li.setAttribute('data-position', employee.position);
+    li.setAttribute('data-salary', `$${employee.salary.toLocaleString()}`);
+    li.setAttribute('data-age', employee.age);
+    ul.appendChild(li);
+  });
 };
 
 sortList(employees);
